@@ -1,0 +1,6 @@
+# Ignore all files and directories at project root
+/*
+
+# Whitelist
+!.gitignore
+!.doom.d
