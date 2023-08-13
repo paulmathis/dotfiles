@@ -21,7 +21,7 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-;;(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
+(setq doom-font (font-spec :family "JetBrains Mono" :size 16 :weight 'semi-light))
 ;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
@@ -74,3 +74,25 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+(after! treemacs
+  (setq treemacs-project-follow-mode t))
+
+(after! org-capture
+  ;; Remove existing 't' template
+  (setq org-capture-templates
+        (cl-remove-if (lambda (x) (string= (car x) "t")) org-capture-templates))
+  ;; Add new 't' template
+  (add-to-list 'org-capture-templates
+               '("t" "Todo" entry (file+headline "~/org/todo.org" "Tasks")
+                 "* TODO %?\n  %u\n  %a")))
+
+;; (require 'ob-js)
+
+;; (add-to-list 'org-babel-load-languages '(js . t))
+;; (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+;; (add-to-list 'org-babel-tangle-lang-exts '("js" . "js"))
+
+;; (defun org-babel-execute:typescript (body params)
+;;   (let ((org-babel-js-cmd "npx ts-node < "))
+;;     (org-babel-execute:js body params)))
