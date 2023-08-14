@@ -87,6 +87,11 @@
                '("t" "Todo" entry (file+headline "~/org/todo.org" "Tasks")
                  "* TODO %?\n  %u\n  %a")))
 
+(map! :leader
+      :desc "Open org file"
+      "o o" #'(lambda () (interactive) (+vertico/find-file-in "~/org/")))
+
+
 ;; (require 'ob-js)
 
 ;; (add-to-list 'org-babel-load-languages '(js . t))
