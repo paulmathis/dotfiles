@@ -91,7 +91,7 @@
       :desc "Open org file"
       "o o" #'(lambda () (interactive) (+vertico/find-file-in "~/org/")))
 
-
+(add-hook 'window-setup-hook #'toggle-frame-maximized)
 ;; (require 'ob-js)
 
 ;; (add-to-list 'org-babel-load-languages '(js . t))
