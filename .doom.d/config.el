@@ -74,6 +74,7 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+(setq find-file-visit-truename nil)
 
 (after! treemacs
   (setq treemacs-project-follow-mode t))
@@ -88,8 +89,8 @@
                  "* TODO %?\n  %u\n  %a")))
 
 (map! :leader
-      :desc "Open org file"
-      "o o" #'(lambda () (interactive) (+vertico/find-file-in "~/org/")))
+      :desc "Find file in org dir"
+      "f o" #'(lambda () (interactive) (+vertico/find-file-in "~/org/")))
 
 (add-hook 'window-setup-hook #'toggle-frame-maximized)
 ;; (require 'ob-js)
